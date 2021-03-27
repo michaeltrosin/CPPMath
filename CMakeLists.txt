@@ -11,3 +11,5 @@ add_library(Math
         math/color.h
         math/color.cpp
         )
+
+set_target_properties(Math PROPERTIES LINKER_LANGUAGE CXX)
