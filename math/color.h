@@ -87,6 +87,8 @@ private:
     } m_color_data;
 
 public:
+    static Color random();
+
 #pragma region DefaultColorValues
 
     [[maybe_unused]] static Color medium_violet_red;     // Value data: (R, G, B) (199,  21, 133);

@@ -6,6 +6,8 @@
 
 #include "mathf.h"
 
+#include <random>
+
 Color::Color() : Color(255) {}
 
 Color::Color(int c) : Color(c, c, c) {}
@@ -257,5 +259,16 @@ Color Color::light_slate_gray(119, 136, 153);      // NOLINT(cert-err58-cpp)
 Color Color::dark_gray(169, 169, 169);             // NOLINT(cert-err58-cpp)
 Color Color::silver(192, 192, 192);                // NOLINT(cert-err58-cpp)
 Color Color::light_gray(211, 211, 211);            // NOLINT(cert-err58-cpp)
-
 #pragma endregion DefaultColorValues
+
+Color Color::random() {
+    std::random_device rd;
+    std::mt19937 mt(rd());
+    std::uniform_real_distribution<float> dist(0, 255);//range is 20 to 22
+
+    auto r = (uint8_t) std::floor(dist(mt));
+    auto g = (uint8_t) std::floor(dist(mt));
+    auto b = (uint8_t) std::floor(dist(mt));
+
+    return Color(r, g, b);
+}
