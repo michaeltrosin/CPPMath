@@ -264,11 +264,11 @@ Color Color::light_gray(211, 211, 211);            // NOLINT(cert-err58-cpp)
 Color Color::random() {
     std::random_device rd;
     std::mt19937 mt(rd());
-    std::uniform_real_distribution<float> dist(0, 255);//range is 20 to 22
+    std::uniform_int_distribution<uint8_t> dist(0, 255);//range is 20 to 22
 
-    auto r = (uint8_t) std::floor(dist(mt));
-    auto g = (uint8_t) std::floor(dist(mt));
-    auto b = (uint8_t) std::floor(dist(mt));
+    uint8_t r = dist(mt);
+    uint8_t g = dist(mt);
+    uint8_t b = dist(mt);
 
     return Color(r, g, b);
 }
